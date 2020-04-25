@@ -1,0 +1,55 @@
+@charset "utf-8";
+.navbar{
+	width:100%;
+}
+#wrapper{
+	background-color: black;
+	width: 100%;
+	height: 100%
+}
+#header {
+	width: 100%;
+	height: 114px;
+}
+#banner{
+	width: 100%;
+	height: 100%;
+}
+#affi{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #FFF;
+}
+#affi-detail{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #FFF;
+}
+
+#abus{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #FFF;
+}
+#footer{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #FFF;
+}
+.box{
+	text-align: center;
+}
+
+/*
+.home img:last-child {
+	position: absolute;
+	top: 0;
+	left: 16%;
+	opacity: 0;
+	z-index: 1;
+	transition: all 0.5s ease-in;
+}*/

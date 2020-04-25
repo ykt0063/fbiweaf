@@ -1,0 +1,614 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>星易購物商城</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+
+  <link href="assets/css/timeTo.css" type="text/css" rel="stylesheet"/>
+  <script src="assets/js/jquery.time-to.js"></script>
+  
+  <script>
+  	$(function(){ 
+  	     var navMain = $(".navbar-collapse"); // avoid dependency on #id
+  	     // "a:not([data-toggle])" - to avoid issues caused
+  	     // when you have dropdown inside navbar
+  	     var x = $( window ).width();
+         if (x<767){
+  	     	navMain.on("click", "a:not([data-toggle])", null, function () {
+  	        	 navMain.collapse('hide');
+  	     	});
+         }
+  	 });
+    $( document ).ready(function() {
+        if (!$('#WRAPPER').hasClass('isgift')) {
+        	$(window).on('scroll', function() {
+        	    if ($(this).width() <= 1280) {
+        	        $('#toolbar').css({
+        	            //top: $(this).scrollTop() + ($(this).height() - $('#toolbar').height()) / 2 - 8
+        	        });
+        	    } else {
+        	        $('#toolbar').removeAttr('style');
+        	    }
+        	}).trigger('scroll');
+    	}
+        var str="<li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown'  href='#'><font style='font-size:14px'>功能</font></a>";
+        str=str+"<ul class='dropdown-menu'>";
+        str=str+"<li><a href='#'><font style='font-size:14px'>會員登入</font></a></li>";
+        str=str+"<li><a href='#'><font style='font-size:14px'>會員中心</font></a></li>";
+        str=str+"<li><a href='#'><font style='font-size:14px'>購物車</font></a></li>";
+        str=str+"<li><a href='#'><font style='font-size:14px'>繁體</font></a></li>";
+        str=str+"<li><a href='#'><font style='font-size:14px'>簡體</font></a></li>";
+        var x = $( window ).width();
+        if (x<757){
+        	$('#navHeader').html('');
+        	$('#divHr').html('');
+        	$('.layout-east').html('');
+        	$('#footend1').css('padding-left','10%');
+        	$('#myNavUl').append(str);
+        }
+        if (x<992){
+        	$('#footend1').css('padding-left','10%');
+        }
+        else{
+        	$('#footend1').css('padding-left','15%');
+        }
+        $(window).trigger('scroll');
+        $(window).bind('scroll', function () {
+            var pixels = 100; //number of pixels before modifying styles
+            if ($(window).scrollTop() > pixels) {
+                $('#nav-button').addClass('navbar-fixed-top');
+            } else {
+                $('#nav-button').removeClass('navbar-fixed-top');
+            }
+        }); 
+        $('#countdown').timeTo(new Date('Oct 03 2018 08:00:00 GMT+0800 (CST)')); 
+  	});
+  </script>
+</head>
+<body style="background-color:black;" onresize="myFunction()">
+<script>
+function myFunction() {
+        if(!isSmartPhone()&& !isTablet()){
+            setTimeout(
+              function()
+              {
+                //do something special
+                location.reload();
+              }, 50);
+        }
+}
+function isSmartPhone(){
+        var ua=navigator.userAgent;
+        if (ua.indexOf('iPhone')>0||(ua.indexOf('Android')>0 && ua.indexOf('Mobile')>0) || ua.indexOf('Windows Phone')>0){
+                //alert("Is Smart Phone!!");
+                return true;
+        }
+        else{
+                //alert("Is not Smart Phone!!");
+                return false;
+        }
+}
+function isTablet(){
+        var ua=navigator.userAgent;
+        if (ua.indexOf('iPad')>0||(ua.indexOf('Android')>0 && ua.indexOf('Mobile')==-1)){
+                //alert("Is Tablet!!");
+                return true;
+        }
+        else{
+                //alert("Is not Tablet!!");
+                return false;
+        }
+}
+</script>
+
+  <div class="header text-center" style="background-color:black;">
+  <div class="row" id="navHeader">
+  	<div class="col-md-5 col-md-offset-1">
+  		<a class="navbar-logo" href="#"></a>
+  	</div>
+  	<div class="col-md-5">
+  		<div class="row">
+			<nav class="navbar-inverse nav-upper">
+				<div class="container-fluid">
+    				<ul class="nav navbar-nav">
+    				  <li><a href="#"><font style="font-size:14px">會員登入</font></a></li>
+				      <li><a href="#"><font style="font-size:14px">會員中心</font></a></li>
+    				  <li><a href="#"><font style="font-size:14px">購物車<span class="scNumber"></span></font></a></li>
+    				  <li><a href="#"><font style="font-size:14px">繁體</font></a></li>
+    				  <li><a href="#"><font style="font-size:14px">簡體</font></a></li>
+    				</ul>
+  				</div>
+  			</nav>
+  		</div>
+  		<div class="row">
+			<nav class="navbar-inverse nav-upper">
+				<div class="container-fluid">
+    				<ul class="nav navbar-nav">
+    				  <li>
+    				  	<form class="navbar-form" role="search">
+        					<div class="form-group">
+          						<div class="input-group">
+            						<input type="text" class="form-control" placeholder="商品搜尋">
+            						<span class="input-group-btn">
+              							<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            						</span>
+          						</div>
+        					</div>
+     		 			</form>
+    				  </li>
+				      <li class="top"><a href="#"><img src="assets/images/main/facebook.png"></a></li>
+				      <li class="top"><a href="#"><img src="assets/images/main/line.png"></a></li>
+    				</ul>
+  				</div>
+  			</nav>
+  		</div>
+  	</div>
+  </div>
+  <div id="divHr"><hr id="hr"></div>
+<nav id="nav-button" class="navbar navbar-inverse navbar-static-top navbar-lower ">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse " id="myNavbar">
+      <ul class="nav navbar-nav navbar-nav" id="myNavUl">
+        <li><a href="#"><font style="font-size:14px;">商品介紹</font></a>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  href="#"><font style="font-size:14px;">促銷活動</font></a>
+        	<ul class="dropdown-menu">
+        		<li><a href="#spec"><font style="font-size:14px">本月特惠</font></a></li>
+        		<li><a href="#hot"><font style="font-size:14px;">熱銷商品</font></a></li>
+        		<li><a href="#limitTime"><font style="font-size:14px;">限時特賣</font></a></li>
+        	</ul>
+        </li>
+        <li><a href="#"><font style="font-size:14px;">關於我們</font></a>
+        </li>
+        <li><a href="#"><font style="font-size:14px;">最新消息</font></a>
+        </li>
+        <li><a href="#share"><font style="font-size:14px;">見證分享</font></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  </div>
+  <div id="WRAPPER" class="content container">
+  	<div id="banner">
+  		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	    <!-- Indicators -->
+		    <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    		  <li data-target="#myCarousel" data-slide-to="1"></li>
+    		  <li data-target="#myCarousel" data-slide-to="2"></li>
+    		</ol>
+
+    	<!-- Wrapper for slides -->
+    		<div class="carousel-inner">
+      			<div class="item active">
+      			  <img src="assets/images/main/banner1.png" alt="Los Angeles" style="width:100%;">
+      			</div>
+
+      			<div class="item">
+        			<img src="assets/images/main/banner2.png" alt="Chicago" style="width:100%;">
+      			</div>
+      			<div class="item">
+        			<img src="assets/images/main/banner3.png" alt="New york" style="width:100%;">
+      			</div>
+    		</div>
+
+    	<!-- Left and right controls -->
+    		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left"></span>
+      			<span class="sr-only">Previous</span>
+    		</a>
+    		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+    		  <span class="glyphicon glyphicon-chevron-right"></span>
+    		  <span class="sr-only">Next</span>
+   			 </a>
+  		</div>	
+  	</div>
+    <br><br><br>
+    <div id="limitTime">
+    	<div class="row">
+    		<div class="col-md-5-cols">
+    			<p class="text-center"  style="width:170px">
+    				<font style="font-size:13pt">
+    					活動時間:<span id="timeRange">10/03 8:00 ~ 10/03 11:59</span>
+    				</font>
+    			</p>
+    		</div>
+    		<div class="col-md-20-cols">
+    			<div class="text-center">
+    			    <font style="font-size:24pt;"><font style="text-decoration: line-through;">&nbsp;&nbsp;&nbsp;</font><font style="color:#88f7e1;">&nbsp;限時特賣</font><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <font style="font-size:21pt">倒數</font><span id="countdown"></span>&nbsp;<font style="text-decoration: line-through;">&nbsp;&nbsp;&nbsp;</font></font>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-sm-4 col-md-5-cols">
+    			<div id="limitBG">
+    				<div class="colOneMore">
+	    				<span>
+    						<font style="font-size:30pt">限時特賣</font><br><br>
+    						<font style="font-size:12pt">精選商品</font><br>
+    						<button type="button" class="btn btn-default"><font style="font-size:12pt">MORE ></font></button>
+    					</span>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/limit1.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/limitTop1.png"></div>
+    				<div class="imgThree"><img src="assets/images/main/preSale.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span >
+    					<font style="font-size:15pt">珍藏健康禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>    					
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/limit2.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/limitTop2.png"></div>
+    				<div class="imgThree"><img src="assets/images/main/saleOut.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">珍藏健康禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>
+    					
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/limit3.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/limitTop3.png"></div>
+    				<div class="imgThree"><img src="assets/images/main/spotProduct.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">珍藏健康禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>    					
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/limit4.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/limitTop4.png"></div>
+    			</div>
+    			<div id="limitP1">
+    				<span class="text-center">
+    					<font style="font-size:15pt">珍藏健康禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>    					
+    				</span>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <br>
+    <div id="hot">
+    	<div class="row">
+    		<div class="col-sm-4 col-md-5-cols">
+    			<div id="hotBG">
+    				<div class="colOneMore">
+	    				<span>
+    						<font style="font-size:30pt">熱銷商品</font><br><br>
+    						<font style="font-size:12pt">精選商品</font><br>
+    						<button type="button" class="btn btn-default"><font style="font-size:12pt">MORE ></font></button>
+    					</span>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/hot1.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/hotTop1.png"></div>
+    				<div class="imgThree"><img src="assets/images/main/preSale.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">高挺挺禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:12pt"><font style="color:red">網路價:3,960元</font></font><br>
+    					
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/hot2.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/hotTop2.png"></div>
+    				<div class="imgThree"><img src="assets/images/main/saleOut.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">高婷婷禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/hot3.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/hotTop3.png"></div>
+    				<div class="imgThree"><img src="assets/images/main/spotProduct.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">F&Y光束美肌面膜</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">3200元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:2,400元</font></font><br>    					
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/hot4.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/hotTop4.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">珍藏健康禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>
+    				</span>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <br>
+    <div id="spec">
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-4 col-md-5-cols ">
+				<div id="specBG">
+    				<div class="colOneMore">
+	    				<span>
+    						<font style="font-size:30pt">本月特惠</font><br><br>
+    						<font style="font-size:12pt">精選商品</font><br>
+    						<button type="button" class="btn btn-default"><font style="font-size:12pt">MORE ></font></button>
+    					</span>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-xs-12 col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/spec1.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/specDisct75.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">F&Y光束美肌面膜</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">3200元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:2,400元</font></font><br>
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-xs-12 col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/spec2.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/specDisct85.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">Biotulin15ml + 導入滾輪器</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">3500元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:2,900元</font></font>
+    				</span>
+    			</div>
+       		</div>
+    		<div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-5-cols col-md-offset-0">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/spec3.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/specDisct70.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">微針滾輪</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">800元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:600元</font></font><br>
+    				</span>
+    			</div>
+    		</div>
+    		<div class="col-xs-12 col-sm-4 col-md-5-cols">
+    			<br>
+    			<div class="colIMG">
+    				<div class="imgOne"><img src="assets/images/main/spec4.png"></div>
+    				<div class="imgTwo"><img src="assets/images/main/specDisct75.png"></div>
+    			</div>
+    			<div id="limitP1" class="text-center">
+    				<span>
+    					<font style="font-size:15pt">珍藏健康禮盒</font><br>
+    					<font style="font-size:12pt">售價:<font style="text-decoration: line-through;">4,000元</font></font><br>
+    					<font style="font-size:15pt"><font style="color:red">網路價:3,960元</font></font><br>    					
+    				</span>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <br>
+    <div id="share">
+    	<div class="row">
+    		<div class="col-md-2"><font style="font-size:18px">見證分享</font></div>
+    		<div class="col-md-2 col-md-offset-8 text-right"><a id="shareA" href="#"><font style="font-size:12px">MORE></font></a></div>
+    	</div>
+    	<div>
+	    	<img src="assets/images/main/share_bg.png" style="width:100%;vertical-align: top;">
+    	</div>
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-6 col-md-4">
+    			<div class="shareSet">
+    				<div class="shareIMG">
+	    				<img src="assets/images/main/share1.png">
+	    			</div>
+	    			<div class="shareMask">
+	    				<img src="assets/images/main/shareMask.png">
+	    			</div>
+	    			<div class="shareContext" style="width:313px">
+	    				<font style="font-size:12px">
+    					[會員試用-美之凍]我的皮膚很缺水,我也覺得膠原蛋白漸漸流失,所以買了美之凍膠原蛋白,小資女也想每天有水潤好氣色^^
+    					</font>
+    					<img src="assets/images/main/shareLine.png">
+	    			</div>
+    			</div>
+    		</div>
+    		<div class="col-xs-12 col-sm-6 col-md-4">
+    			<div Class="shareSet">
+					<div class="shareIMG">
+						<img src="assets/images/main/share2.png">
+    				</div>
+    				<div class="shareMask">
+	    				<img src="assets/images/main/shareMask.png">
+	    			</div>
+    				<div class="shareContext" style="width:313px">
+	    				<font style="font-size:12px">
+   						[會員試用-美之凍]我的皮膚很缺水,我也覺得膠原蛋白漸漸流失,所以買了美之凍膠原蛋白,小資女也想每天有水潤好氣色^^
+						</font>
+   						<img src="assets/images/main/shareLine.png">
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-xs-12 col-sm-6 col-md-4">
+    			<div Class="shareSet">
+    				<div class="shareIMG">
+	    				<img src="assets/images/main/share3.png">
+    				</div>
+    				<div class="shareMask">
+    					<img src="assets/images/main/shareMask.png">
+    				</div>
+    				<div class="shareContext" style="width:313px">
+	    				<font style="font-size:12px">
+    					[會員試用-美之凍]我的皮膚很缺水,我也覺得膠原蛋白漸漸流失,所以買了美之凍膠原蛋白,小資女也想每天有水潤好氣色^^
+						</font>
+   						<img src="assets/images/main/shareLine.png">
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+  <div class="layout-east">
+    <ul id="toolbar" class="toolbar" style="color:white">
+	    <a href="#"><img src="assets/images/main/sc0.png" width="45"></a>
+        <a href="#"><img src="assets/images/main/sc1.png"></a>
+        <a href="#"><img src="assets/images/main/sc2.png"></a>
+        <a href="#"><img src="assets/images/main/sc3.png"></a>
+        <a href="#"><img src="assets/images/main/sc4.png"></a>
+        <a href="#"><img src="assets/images/main/sc5.png"></a>
+        <a href="#"><img src="assets/images/main/top.png" width="45"></a>
+    </ul>
+  </div>
+<br>
+  <div class="footer" style="background-color:white; color: black;">
+  	<br>
+  	<div class="row">
+  		<div class="col-md-4">
+  			<div id="footend1">
+  				<div>
+	  				<font style="cont-size:18pt">About關於星意購物商城</font>
+  				</div>
+  				<div>
+  				<img src="assets/images/main/footHLine.png">
+  				</div>
+  				<div>
+	  				<font style="padding:5px;cont-size:12pt">最新消息</font>
+  				</div>
+  				<div>
+	  				<font style="padding:5px;cont-size:12pt">關於我們</font>
+  				</div>
+  				<div>
+	  				<font style="padding:5px;cont-size:12pt">見證分享</font>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="col-md-4">
+  			<div class="footBlock">
+  				<div class="footVLine">
+  					<img src="assets/images/main/footVLine.png" style="width:80%;">
+  				</div>
+  				<div style="padding-left:10%">
+  					<div>
+	  					<font style="cont-size:18pt">CONTACTUS聯絡我們</font>
+  					</div>
+  					<div>
+	  					<img src="assets/images/main/footHLine.png">
+  					</div>
+  					<div>
+	  					<font style="padding:5px;cont-size:12pt">公司地址:新北市板橋區民生路三段30-1號B1</font>
+  					</div>
+  					<div>
+	  					<font style="padding:5px;cont-size:12pt">公司信箱:sineee11111@gmail.com</font>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="col-md-4">
+  			<div class="footBlock">
+  				<div class="footVLine">
+  					<img src="assets/images/main/footVLine.png" style="width:80%;">
+  				</div>
+  				<div style="padding-left:10%">
+  					<div>
+	   					<font style="cont-size:18pt">星意購物商城 客服與聯絡</font>
+  					</div>
+  					<div>
+	  					<img src="assets/images/main/footHLine.png">
+  					</div>
+  					<div>
+	  					<img src="assets/images/main/footPhone.png">
+  					</div>
+  					<div>
+	  					<font style="padding:5px;cont-size:12pt">客服信箱:sineee11111@gmail.com</font>
+  					</div>
+  					<div>
+  						<font style="padding:5px;cont-size:12pt">LINE客服ID:</font>
+  					</div>
+  					<div>
+	  					<font style="padding:5px;cont-size:12pt">客服時間:週一~週五0900-1200/13:00-18:00</font>
+	  				</div>
+	  				<div>
+	  					<img src="assets/images/main/footFaceBook.png">
+	  					<img src="assets/images/main/footLine.png">
+	  				</div>
+  					<br>
+  				</div>		
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <div class="text-center"><font style="font-size:12px;color:white">Copyright © 星意科技股份有限公司. All Rights Reserved  </font></div>
+</body>
+</html>

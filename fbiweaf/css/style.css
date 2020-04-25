@@ -1,0 +1,135 @@
+;@charset "utf-8";
+.navbar{
+	width:100%;
+}
+/*#myNavbar0{
+	max-height: 45px;
+}
+*/#wrapper{
+	background-color: black;
+	/*width: 1024px;*/
+	/*height: 2180px;*/
+}
+h3{
+	margin-top: 5px;
+}
+.row{
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+#header {
+	/*width: 1000px;*/
+	/*height: 114px;*/
+}
+#banner{
+	/*width: 1000px;*/
+	/*height: 575px;*/
+	/*height: 575px;*/
+}
+#affi{
+	/*width: 1000px;*/
+	height: auto;
+	color: #FFF;
+	margin-top: 150px;
+    margin-bottom: 150px;
+}
+}
+#abus-detail{
+	/*width: 900px;*/
+	height: auto;
+	text-align: center;
+	color: #FFF;
+}
+.box{
+	margin-left: 30px;
+    margin-right: 30px;	
+}
+#abus{
+	/*width: 1000px;*/
+	height: auto;
+	text-align: center;
+	color: #FFF;
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+#footer{
+	/*width: 1000px;*/
+	height: auto;
+	text-align: center;
+	color: #FFF;
+}
+#hr{
+	-moz-border-bottom-colors: none;
+	-moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+	border-color: RED -moz-use-text-color RED;
+	
+    border-style: solid none;
+    border-width: 1px 0;
+    margin: 5px 0;
+	color: #F00;
+	background-color: #F00;
+	height: 2px;
+}
+.navbar-nav > li > .dropdown-menu { 
+	background-color:  #000; 
+}
+.navbar-nav > li > .dropdown-menu a{   
+	color:#767272;  
+}
+@media only screen and (min-width: 768px) {
+	.nav0 {
+		position:absolute;
+		bottom:38%;
+		right:8%;
+	}
+	.nav1 {
+		position:absolute;
+		bottom:0%;
+		right:50%;
+	}
+	.nav2 {
+		position:absolute;
+		bottom:0%;
+		right:5%;
+	}
+}
+.navbar{
+	background-color: black;
+	
+}
+.navbar-nav > li > .dropdown-menu a:focus, .navbar-nav > li > .dropdown-menu a:hover{
+    color: #FFF;
+	background-color: transparent;
+}
+.navbar-nav > li > .dropdown-menu {
+    background-color: #000;
+	max-width: 50px;
+	width: 50px;
+}
+.dropdown-menu {
+  max-width: 100px;
+  min-width: 100px;
+}
+
+.dropdown-menu{
+	
+}
+body{
+	background-color: black;
+}
+/*@media only screen and (min-width: 975px) {
+	#rowA div{
+ 	   float: left;
+ 	   width: 50%;
+	}
+	#rowA div:nth-of-type(1){
+		left: 50%;
+	}
+	#rowA div:nth-of-type(2){
+		left: -50%;
+	}
+}
+*/
