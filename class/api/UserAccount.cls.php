@@ -12,6 +12,22 @@ class UserAccount {
 
     public function __construct(){        
     }
+    public static function userComission($object){
+        $sqlStr="call payment.getNewUserComission()";
+        $result = Main::$mysql->sql_query($sqlStr);
+        $obj=array();
+        $code=1;
+        $data=array();
+        if( $result ){
+            $row = Main::$mysql->sql_fetch_array($result);
+            $obj['comission']=$row['comission'];
+            $obj['code']=1;
+        }
+        else{
+            $obj['code']=-1;
+        }
+        return cReturnHandler::responseObj(1,  $obj);
+    }
     public static function getRedSunHistoryData($object){
         $bdate=$object['bdate'];
         $edate=$object['edate'];
@@ -83,7 +99,7 @@ class UserAccount {
                  $obj['verifyData']['token']='';
                  $obj['tempToken']['token']='';
                  $obj['weekNo']=$json->{'WeekNo'};
-		 $obj['eRate']=$json->{'eRate'};
+		         $obj['eRate']=$json->{'eRate'};
                  $obj['userInfo']['token']='';
                  $obj['userInfo']['accountLevel']='';
                  $obj['userInfo']['guid']=$json->{'MB_NO'};

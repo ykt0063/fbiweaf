@@ -1,7 +1,8 @@
 <?php
 
 use report\user\Session;
-
+use report\user\comission;
+$comission = comission::newUserComission();
 ?>
 <script>
 function cVerify()
@@ -29,7 +30,7 @@ function cVerify()
 	    dataType:'json',
 	    success: function(data) {
         	if(data['code'] == 1){
-        		alert('歡迎加入玩美勁化會員，您有300元的購物金可在本站使用。');
+        		alert('歡迎加入玩美勁化會員，您有<?=$comission?>元的購物金可在本站使用。');
         		document.getElementById("mainForm").reset();
     		    WebTool.webPageLocation(defUrl+"index.php");
 <?php 

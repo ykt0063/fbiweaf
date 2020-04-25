@@ -17,4 +17,18 @@ class comission{
         }
         return $obj;
     }
+    public static function newUserComission(){
+        $query=array();
+        $result = ApiHandler::callApi('userComission', $query);
+        //$result=array('code'=>1,'comission'=>300);
+        $obj=array();
+        $comission=0;
+        if(!isset($result['code']) || $result['code'] != 1){
+            $comission = 0;
+        }
+        else{
+            $comission = $result['comission'];
+        }
+        return $comission;
+    }
 }

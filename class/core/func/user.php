@@ -60,4 +60,8 @@ $funConfigArr = $funConfigArr +  array(
         'class' => 'api\user\UserAccount',
         'fun' => 'getSunshipData',
     ),
+    'userComission' => array(
+        'class' => 'api\user\UserAccount',
+        'fun' => 'userComission',
+    ),
 );
